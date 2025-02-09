@@ -49,12 +49,6 @@ app.delete("/cache/:key", (req, res) => {
   return res.status(200).json({ message: "Key removed from cache." });
 });
 
-// DELETE /cache/key - Clear the entire cache
-app.delete("/cache/key", (req, res) => {
-  cache.clear();
-  return res.status(200).json({ message: "All cache items cleared." });
-});
-
 app.get("/cache", (req, res) => {
   const allCache = Array.from(cache.entries()).map(([key, value]) => ({
     key,
